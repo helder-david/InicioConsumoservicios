@@ -9,14 +9,33 @@
 </head>
 <body>
 
-
-  
+ <center> <div class="container">
  <h1>Consumo de servicios</h1>
-    
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <img id="dogImage" class="img-fluid" src="#" alt="Imagen de un perro"></br>
+        <button id="getDogButton" class="btn btn-primary mt-3">Clic nueva imagen</button>
+      </div>
+    </div>
+  </div></center>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  
 </body>
+
+  <script>
+    // Función para obtener y mostrar una imagen de perro
+    function getDogImage() {
+      $.get("https://dog.ceo/api/breeds/image/random", function(data) {
+        $("#dogImage").attr("src", data.message);
+      });
+    }
+
+    // Evento click del botón para obtener una imagen de perro
+    $("#getDogButton").click(function() {
+      getDogImage();
+    });
+  </script>
 
   
 </html>
